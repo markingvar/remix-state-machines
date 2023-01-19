@@ -29,6 +29,14 @@ export default function Index() {
             Actions
           </Link>
         </li>
+        <li className="mb-4">
+          <Link
+            className="bg-indigo-700 hover:bg-indigo-800 text-indigo-50 font-medium text-lg px-6 py-2 rounded-lg"
+            to="/context"
+          >
+            Context
+          </Link>
+        </li>
       </ul>
     </div>
   );

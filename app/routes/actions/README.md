@@ -66,4 +66,29 @@ const machine = createMachine({...}).withConfig({
 
 It is recommended to declare the actions within an array. There is always the chance that we will want to execute multiple actions at once.
 
+### Raising Events
 
+We can also raise events. When we raise an event, it is sent to the machine.
+
+It is basically the machine telling itself to do something.
+
+```javascript
+import { raise } from "xstate/lib/actions"
+loading_state: {
+        entry: [...],
+        exit: [...],
+        on: {
+                SOME_EVENT: {
+                        actions: raise({type: 'SUCCESS_EVENT'})
+                    }
+            }
+    }
+```
+
+#### Raise vs Send
+
+**Raise** is a machine sending events to itself
+
+**Send** is a machine sending an event to itself or another machine
+
+It is recommended to use send only to send events to another machine/actor. If we want the machine to send events to itself, use raise.
